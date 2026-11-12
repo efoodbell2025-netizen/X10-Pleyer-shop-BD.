@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X10 PLAYER SHOP BD | ফ্রি ফায়ার প্লেয়ার ও টিম রিক্রুটমেন্ট</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0b10;
+            --card-bg: #131620;
+            --primary-red: #ff2a4b;
+            --primary-blue: #00d2ff;
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+            --border-color: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Hind Siliguri', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        header {
+            background: rgba(19, 22, 32, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: 1px;
+        }
+
+        .logo span { color: var(--primary-red); }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--primary-blue); }
+
+        .btn {
+            padding: 9px 18px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: 0.3s;
+            font-size: 15px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-blue {
+            background: transparent;
+            border: 1px solid var(--primary-blue);
+            color: var(--primary-blue);
+        }
+
+        .btn-blue:hover {
+            background: var(--primary-blue);
+            color: #000;
+        }
+
+        .btn-red {
+            background: var(--primary-red);
+            color: #fff;
+        }
+
+        .btn-red:hover { background: #d91b38; }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 65px 20px;
+            background: radial-gradient(circle at top, #181f38 0%, var(--bg-dark) 75%);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .badge {
+            background: rgba(255, 42, 75, 0.15);
+            color: var(--primary-red);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid rgba(255, 42, 75, 0.4);
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            margin-bottom: 15px;
+            line-height: 1.25;
+        }
+
+        .hero h1 span { color: var(--primary-blue); }
+
+        .hero p {
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto 30px;
+            font-size: 17px;
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 26px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-red);
+            padding-left: 12px;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        input, select, textarea {
+            background: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            color: #fff;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 15px;
+            outline: none;
+            width: 100%;
+        }
+
+        input:focus, select:focus, textarea:focus { border-color: var(--primary-blue); }
+
+        /* Grid Cards */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary-blue);
+        }
+
+        .status-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(16, 185, 129, 0.15);
+            color: #10b981;
+            font-size: 12px;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        .player-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 15px;
+        }
+
+        .avatar {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary-red), var(--primary-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .details-box {
+            background: var(--bg-dark);
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .detail-row:last-child { margin-bottom: 0; }
+        .detail-label { color: var(--text-muted); }
+
+        /* Forms Section */
+        .forms-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .form-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .form-card h3 {
+            margin-bottom: 18px;
+            font-size: 22px;
+            color: var(--primary-blue);
+        }
+
+        .form-group { margin-bottom: 14px; }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .btn-full {
+            width: 100%;
+            text-align: center;
+            padding: 12px;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+
+        #no-result {
+            text-align: center;
+            padding: 35px;
+            background: var(--card-bg);
+            border-radius: 10px;
+            color: var(--text-muted);
+            display: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <div class="logo">🎮 X10 <span>PLAYER SHOP</span> BD</div>
+        <ul class="nav-links">
+            <li><a href="#">হোম</a></li>
+            <li><a href="#players">প্লেয়ার খুঁজুন</a></li>
+            <li><a href="#teams">টিম রিক্রুটমেন্ট</a></li>
+            <li><a href="#register-forms">রেজিস্ট্রেশন ও পোস্ট</a></li>
+        </ul>
+        <a href="#register-forms" class="btn btn-red">যুক্ত হোন</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="badge">বাংলাদেশের ফ্রি ফায়ার ই-স্পোর্টস প্ল্যাটফর্ম</div>
+        <h1>খেলোয়াড় খুঁজুন, <span>টিম গড়ুন</span>, একসাথে এগিয়ে যান!</h1>
+        <p>আপনার গেমিং প্রোফাইল তৈরি করে সেরা টিমে যোগ দিন অথবা আপনার টিমের জন্য দক্ষ ফ্রি ফায়ার খেলোয়াড় নিয়োগ করুন।</p>
+        <div class="hero-actions">
+            <a href="#register-forms" class="btn btn-red">প্লেয়ার প্রোফাইল তৈরি করুন</a>
+            <a href="#register-forms" class="btn btn-blue">টিম নিয়োগ বিজ্ঞপ্তি দিন</a>
+        </div>
+    </section>
+
+    <!-- 1. Player Search Section -->
+    <div class="container" id="players">
+        <h2 class="section-title">দক্ষ প্লেয়ার খুঁজুন (Player Search)</h2>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="নাম, IGN বা Free Fire UID লিখুন..." onkeyup="filterPlayers()">
+            <select id="roleFilter" onchange="filterPlayers()">
+                <option value="ALL">সব ভূমিকা (Role)</option>
+                <option value="Rusher">Rusher (রাশার)</option>
+                <option value="Sniper">Sniper (স্নাইপার)</option>
+                <option value="Supporter">Supporter (সাপোর্টার)</option>
+                <option value="IGL">IGL (লিডার)</option>
+            </select>
+            <select id="districtFilter" onchange="filterPlayers()">
+                <option value="ALL">সব জেলা (District)</option>
+                <option value="ঢাকা">ঢাকা</option>
+                <option value="চট্টগ্রাম">চট্টগ্রাম</option>
+                <option value="সিলেট">সিলেট</option>
+                <option value="রাজশাহী">রাজশাহী</option>
+            </select>
+        </div>
+
+        <div class="grid-3" id="playerGrid"></div>
+
+        <div id="no-result">
+            <h3>😔 দুঃখিত! বর্তমানে এই ফিল্টারের সাথে মিলে এমন কোনো খেলোয়াড় পাওয়া যায়নি।</h3>
+            <p>অন্য নাম, UID বা জেলা দিয়ে আবার চেষ্টা করুন।</p>
+        </div>
+    </div>
+
+    <!-- 2. Team Recruitment Posts Section -->
+    <div class="container" id="teams">
+        <h2 class="section-title">চলমান টিম নিয়োগ বিজ্ঞপ্তি (Team Recruitment)</h2>
+        <div class="grid-3" id="teamGrid"></div>
+    </div>
+
+    <!-- 3. Registration & Recruitment Forms Section -->
+    <div class="container" id="register-forms">
+        <h2 class="section-title">নতুন প্রোফাইল ও নিয়োগ বিজ্ঞপ্তি ফর্ম</h2>
+        <div class="forms-wrapper">
+            
+            <!-- Player Registration Form -->
+            <div class="form-card">
+                <h3>🎮 প্লেয়ার রেজিস্ট্রেশন ফর্ম</h3>
+                <form onsubmit="addPlayer(event)">
+                    <div class="form-group">
+                        <label>আপনার আসল নাম</label>
+                        <input type="text" id="pName" placeholder="যেমন: তানভীর আহমেদ" required>
+                    </div>
+                    <div class="form-group">
+                        <label>ইন-গেম নাম (IGN)</label>
+                        <input type="text" id="pIgn" placeholder="যেমন: X10ㅤTANVIR" required>
+                    </div>
+                    <div class="form-group">
+                        <label>ফ্রি ফায়ার UID</label>
+                        <input type="number" id="pUid" placeholder="যেমন: 194827361" required>
+                    </div>
+                    <div class="form-group">
+                        <label>পছন্দের ভূমিকা (Role)</label>
+                        <select id="pRole" required>
+                            <option value="Rusher">Rusher (রাশার)</option>
+                            <option value="Sniper">Sniper (স্নাইপার)</option>
+                            <option value="Supporter">Supporter (সাপোর্টার)</option>
+                            <option value="IGL">IGL (লিডার)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>বর্তমান র‍্যাঙ্ক</label>
+                        <input type="text" id="pRank" placeholder="যেমন: Heroic / Grandmaster" required>
+                    </div>
+                    <div class="form-group">
+                        <label>জেলা</label>
+                        <select id="pDistrict" required>
+                            <option value="ঢাকা">ঢাকা</option>
+                            <option value="চট্টগ্রাম">চট্টগ্রাম</option>
+                            <option value="সিলেট">সিলেট</option>
+                            <option value="রাজশাহী">রাজশাহী</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>খেলার অভিজ্ঞতা</label>
+                        <input type="text" id="pExp" placeholder="যেমন: ৩ বছর" required>
+                    </div>
+                    <button type="submit" class="btn btn-red btn-full">প্রোফাইল তৈরি করুন</button>
+                </form>
+            </div>
+
+            <!-- Team Recruitment Form -->
+            <div class="form-card">
+                <h3 style="color: var(--primary-red);">🛡️ টিম নিয়োগ বিজ্ঞপ্তি ফর্ম</h3>
+                <form onsubmit="addTeam(event)">
+                    <div class="form-group">
+                        <label>টিমের নাম</label>
+                        <input type="text" id="tName" placeholder="যেমন: TEAM X10 ESPORTS" required>
+                    </div>
+                    <div class="form-group">
+                        <label>কোন ভূমিকার প্লেয়ার প্রয়োজন?</label>
+                        <select id="tRole" required>
+                            <option value="Rusher">Rusher (রাশার)</option>
+                            <option value="Sniper">Sniper (স্নাইপার)</option>
+                            <option value="Supporter">Supporter (সাপোর্টার)</option>
+                            <option value="IGL">IGL (লিডার)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>প্রয়োজনীয় প্লেয়ার সংখ্যা</label>
+                        <input type="number" id="tCount" placeholder="যেমন: ২ জন" required>
+                    </div>
+                    <div class="form-group">
+                        <label>ন্যূনতম অভিজ্ঞতা ও শর্ত</label>
+                        <input type="text" id="tReq" placeholder="যেমন: ২ বছরের টুর্নামেন্ট অভিজ্ঞতা ও মাইক অন থাকতে হবে" required>
+                    </div>
+                    <div class="form-group">
+                        <label>যোগাযোগের মাধ্যম (WhatsApp / Discord)</label>
+                        <input type="text" id="tContact" placeholder="যেমন: 017XXXXXXXX" required>
+                    </div>
+                    <button type="submit" class="btn btn-blue btn-full">নিয়োগ বিজ্ঞপ্তি প্রকাশ করুন</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>🎮 X10 PLAYER SHOP BD</strong> — বাংলাদেশের ফ্রি ফায়ার প্লেয়ার ও টিমের মিলনস্থল।</p>
+        <p style="margin-top: 5px;">© ২০২৬ সর্বস্বত্ব সংরক্ষিত।</p>
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Sample Initial Data
+        const players = [
+            { name: "তানভীর আহমেদ", ign: "X10ㅤTANVIR", uid: "194827361", role: "Rusher", rank: "Heroic ★★★★", district: "ঢাকা", exp: "৪ বছর" },
+            { name: "সাকিব আল হাসান", ign: "BDㅤSNIPER_OP", uid: "284756192", role: "Sniper", rank: "Master", district: "চট্টগ্রাম", exp: "৩.৫ বছর" },
+            { name: "রাফি ইসলাম", ign: "RAFIㅤIGL", uid: "394857201", role: "IGL", rank: "Grandmaster", district: "সিলেট", exp: "৫ বছর" }
+        ];
+
+        const teams = [
+            { name: "TEAM X10 OFFICIAL", role: "Rusher", count: "২ জন", req: "৩ বছরের অভিজ্ঞতা ও প্রতিদিন প্র্যাকটিস করতে হবে", contact: "01700-000000" },
+            { name: "BENGAL TIGERS FF", role: "Sniper", count: "১ জন", req: "টুর্নামেন্ট অভিজ্ঞতা বাধ্যতামূলক", contact: "01800-000000" }
+        ];
+
+        // Render Players
+        function displayPlayers(list) {
+            const grid = document.getElementById("playerGrid");
+            const noResult = document.getElementById("no-result");
+            grid.innerHTML = "";
+
+            if (list.length === 0) {
+                noResult.style.display = "block";
+                return;
+            }
+            noResult.style.display = "none";
+
+            list.forEach(p => {
+                grid.innerHTML += `
+                    <div class="card">
+                        <span class="status-tag">● খেলার জন্য প্রস্তুত</span>
+                        <div class="player-header">
+                            <div class="avatar">${p.name.charAt(0)}</div>
+                            <div>
+                                <h3 style="font-size:18px;">${p.ign}</h3>
+                                <span style="font-size:13px; color:var(--primary-blue); font-family:'Rajdhani',sans-serif;">UID: ${p.uid}</span>
+                            </div>
+                        </div>
+                        <div class="details-box">
+                            <div class="detail-row"><span class="detail-label">নাম:</span> <strong>${p.name}</strong></div>
+                            <div class="detail-row"><span class="detail-label">ভূমিকা:</span> <strong style="color:var(--primary-red)">${p.role}</strong></div>
+                            <div class="detail-row"><span class="detail-label">র‍্যাঙ্ক:</span> <strong>${p.rank}</strong></div>
+                            <div class="detail-row"><span class="detail-label">জেলা:</span> <strong>${p.district}</strong></div>
+                            <div class="detail-row"><span class="detail-label">অভিজ্ঞতা:</span> <strong>${p.exp}</strong></div>
+                        </div>
+                        <button class="btn btn-blue btn-full" onclick="alert('${p.ign}-কে টিমে যোগদানের অনুরোধ পাঠানো হয়েছে!')">যোগাযোগ করুন</button>
+                    </div>
+                `;
+            });
+        }
+
+        // Render Teams
+        function displayTeams() {
+            const grid = document.getElementById("teamGrid");
+            grid.innerHTML = "";
+            teams.forEach(t => {
+                grid.innerHTML += `
+                    <div class="card" style="border-top: 3px solid var(--primary-red);">
+                        <h3 style="font-size:20px; margin-bottom:10px;">🛡️ ${t.name}</h3>
+                        <div class="details-box">
+                            <div class="detail-row"><span class="detail-label">প্রয়োজনীয় ভূমিকা:</span> <strong style="color:var(--primary-blue)">${t.role}</strong></div>
+                            <div class="detail-row"><span class="detail-label">প্লেয়ার সংখ্যা:</span> <strong>${t.count}</strong></div>
+                            <div class="detail-row"><span class="detail-label">শর্তাবলি:</span> <strong>${t.req}</strong></div>
+                            <div class="detail-row"><span class="detail-label">যোগাযোগ:</span> <strong>${t.contact}</strong></div>
+                        </div>
+                        <button class="btn btn-red btn-full" onclick="alert('${t.name}-এ আপনার আবেদন পাঠানো হয়েছে!')">আবেদন করুন (Apply)</button>
+                    </div>
+                `;
+            });
+        }
+
+        // Filter Players
+        function filterPlayers() {
+            const searchText = document.getElementById("searchInput").value.toLowerCase();
+            const role = document.getElementById("roleFilter").value;
+            const district = document.getElementById("districtFilter").value;
+
+            const filtered = players.filter(p => {
+                const matchesSearch = p.name.toLowerCase().includes(searchText) || p.ign.toLowerCase().includes(searchText) || p.uid.includes(searchText);
+                const matchesRole = role === "ALL" || p.role === role;
+                const matchesDistrict = district === "ALL" || p.district === district;
+                return matchesSearch && matchesRole && matchesDistrict;
+            });
+
+            displayPlayers(filtered);
+        }
+
+        // Add New Player from Form
+        function addPlayer(e) {
+            e.preventDefault();
+            const newPlayer = {
+                name: document.getElementById("pName").value,
+                ign: document.getElementById("pIgn").value,
+                uid: document.getElementById("pUid").value,
+                role: document.getElementById("pRole").value,
+                rank: document.getElementById("pRank").value,
+                district: document.getElementById("pDistrict").value,
+                exp: document.getElementById("pExp").value
+            };
+            players.unshift(newPlayer);
+            displayPlayers(players);
+            e.target.reset();
+            alert("অভিনন্দন! আপনার প্লেয়ার প্রোফাইল সফলভাবে যুক্ত হয়েছে।");
+            document.getElementById("players").scrollIntoView();
+        }
+
+        // Add New Team Post from Form
+        function addTeam(e) {
+            e.preventDefault();
+            const newTeam = {
+                name: document.getElementById("tName").value,
+                role: document.getElementById("tRole").value,
+                count: document.getElementById("tCount").value + " জন",
+                req: document.getElementById("tReq").value,
+                contact: document.getElementById("tContact").value
+            };
+            teams.unshift(newTeam);
+            displayTeams();
+            e.target.reset();
+            alert("আপনার টিম নিয়োগ বিজ্ঞপ্তি সফলভাবে প্রকাশিত হয়েছে!");
+            document.getElementById("teams").scrollIntoView();
+        }
+
+        // Initial Render
+        displayPlayers(players);
+        displayTeams();
+    </script>
+</body>
+</html>
